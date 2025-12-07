@@ -6,18 +6,22 @@
         <div class="card-body text-center">
             <h2 class="card-title text-danger mb-4">Confirmer la suppression</h2>
             <p class="mb-4">Êtes-vous sûr de vouloir supprimer cet élément ?</p>
-            
-            <form method="post" class="d-inline w-full">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-error btn-soft btn-lg w-full">
-                    Confirmer la suppression
-                </button>
-            </form>
-            
-            <a href="{% url 'list_employes' %}" class="btn btn-soft btn-lg">
-                Annuler
-            </a>
+            <div class="mb-4"></div>
+            <p><strong>Nom:</strong> {{ employe.first_name }} {{ employe.last_name }}</p>
+            <p><strong>Email:</strong> {{ employe.email }}</p>
+            <p><strong>Poste:</strong> {{ employe.position }}</p>
         </div>
+        <form method="post" class="d-inline w-full">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-error btn-soft btn-lg w-full">
+                Confirmer la suppression
+            </button>
+        </form>
+
+        <a href="{% url 'list_employes' %}" class="btn btn-soft btn-lg mt-2">
+            Annuler
+        </a>
     </div>
+</div>
 </div>
 {% endblock %}
